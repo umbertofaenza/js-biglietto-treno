@@ -5,23 +5,20 @@ const userKM = prompt("Quanti km vuoi percorrere?");
 const passengerAge = parseInt(prompt("Quanti anni ha il passeggero?"));
 
 // Calcolo il prezzo base del viaggio moltiplicando i km inseriti per il prezzo al km
-const basePrice = userKM * 0.21;
+let basePrice = userKM * 0.21;
+let discountDescription = "0%";
 
-// Dichiaro una variabile per il prezzo scontato
-let discountedPrice;
-
+// Passeggero minorenne
 if (passengerAge < 18) {
-  discountedPrice = basePrice - (basePrice * 20) / 100;
-  document.getElementById("ticket-price__generated").innerHTML =
-    "€" + discountedPrice.toFixed(2);
-  document.getElementById("discount").innerHTML = "20% - Sconto per minorenni";
+  basePrice = basePrice - (basePrice * 20) / 100;
+  discountDescription = "20% - Sconto per minorenni";
+  // Passeggero over 65
 } else if (passengerAge >= 65) {
-  discountedPrice = basePrice - (basePrice * 40) / 100;
-  document.getElementById("ticket-price__generated").innerHTML =
-    "€" + discountedPrice.toFixed(2);
-  document.getElementById("discount").innerHTML = "40% - Sconto per Over 65";
-} else {
-  document.getElementById("ticket-price__generated").innerHTML =
-    "€" + basePrice.toFixed(2);
-  document.getElementById("discount").innerHTML = "0%";
+  basePrice = basePrice - (basePrice * 40) / 100;
+  discountDescription = "40% - Sconto per Over 65";
 }
+
+// Prezzo finale e sconto
+document.getElementById("ticket-price__generated").innerHTML =
+  "€" + basePrice.toFixed(2);
+document.getElementById("discount").innerHTML = discountDescription;
