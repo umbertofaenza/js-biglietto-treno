@@ -1,5 +1,5 @@
 // Chiedo all'utente il numero di chilometri che vuole percorrere
-const userKM = prompt("Quanti km vuoi percorrere?");
+const userKM = parseFloat(prompt("Quanti km vuoi percorrere?"));
 
 // Chiedo all'utente l'età del passeggero
 const passengerAge = parseInt(prompt("Quanti anni ha il passeggero?"));
