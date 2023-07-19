@@ -13,15 +13,15 @@ let discountedPrice;
 if (passengerAge < 18) {
   discountedPrice = basePrice - (basePrice * 20) / 100;
   document.getElementById("ticket-price__generated").innerHTML =
-    "€" + discountedPrice;
+    "€" + discountedPrice.toFixed(2);
   document.getElementById("discount").innerHTML = "20% - Sconto per minorenni";
 } else if (passengerAge >= 65) {
   discountedPrice = basePrice - (basePrice * 40) / 100;
   document.getElementById("ticket-price__generated").innerHTML =
-    "€" + discountedPrice;
+    "€" + discountedPrice.toFixed(2);
   document.getElementById("discount").innerHTML = "40% - Sconto per Over 65";
 } else {
   document.getElementById("ticket-price__generated").innerHTML =
-    "€" + basePrice;
+    "€" + basePrice.toFixed(2);
   document.getElementById("discount").innerHTML = "0%";
 }
